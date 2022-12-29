@@ -15,11 +15,9 @@
 <body>
 	<form method="get" action="/JSP/test03.jsp">
 		<h1>체격 조건 입력</h1>
-		<input type="text" name="height">
-		<label>c m</label>
-		<input type="text" name="weight">
-		<label>k g</label>
-		<button type="submit" class="btn btn-primary">계산</button>			
+		<input type="text" name="height">cm
+		<input type="text" name="weight">kg
+		<input type="submit" value="계산">			
 	</form>
 </body>
 </html>
