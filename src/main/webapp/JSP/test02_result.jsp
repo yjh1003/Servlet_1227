@@ -10,28 +10,22 @@
 </head>
 <body>
 
-	<form method="get" action="/JSP/test02.jsp">
-		<%
-			Date now = new Date();
-			String date = request.getParameter("date");
-			
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
-			String dateString = formatter.format(now);
-		%>
-		<h1>오늘 날짜 <%= date %></h1>
-	</form>
 
-	<form method="get" action="/JSP/test02.jsp">	
 		<%
-		//	Date now = new Date();
-			String time = request.getParameter("time");
-			
-			SimpleDateFormat formatter2 = new SimpleDateFormat("HH시 mm분 ss초");
-			String timeString = formatter.format(now);
-		%>
+		Date now = new Date();
 		
-		<h1>현재 시간 <%= time %></h1>
-	</form>
+		SimpleDateFormat date = new SimpleDateFormat("yyyy년 M월 dd일");
+		SimpleDateFormat time = new SimpleDateFormat("HH시 mm분 ss초");
+		String dateString = date.format(now);
+		String timeString = time.format(now);
+		
+		String todayDate = request.getParameter("date");
+		
+		
+		%>
+		<h1>오늘 날짜 <%= dateString %></h1>
+		<h1>현재 시간 <%= timeString %></h1>
+
 	
 </body>
 </html>
