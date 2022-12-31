@@ -14,22 +14,31 @@
 </head>
 <body>
 	<%
-		String number1String = request.getParameter("number1");
-		String number2String = request.getParameter("number2");
+		int number1 = Integer.parseInt(request.getParameter("number1"));
+		int number2 = Integer.parseInt(request.getParameter("number2"));
 		
-		int number1 = Integer.parseInt(number1String);
-		int number2 = Integer.parseInt(number2String);
-		
-		String operater = request.getParameter("operater");
-	
-		int sum = number1 + number2;
+		String operator = request.getParameter("operator");
+		double result = 0;
+		if(operator.equals("+")) {
+			result = number1 + number2;
+		} else if(operator.equals("-")) {
+			result = number1 - number2;
+		} else if(operator.equals("X")) {
+			result = number1 * number2;
+		} else if(operator.equals("/")) {
+			result = number1 / (double)number2;
+		}
 	%>
 
 	<div class="container"> 
-		<div class="display-2">계산 결과
-			<%=  %>
+		<h1>계산 결과</h1>
+		<div class="display-4">
+			<%= number1 %> <%= operator %> <%= number2 %> = <span class="text-primary"> <%= result %> </span>
 		</div>
 	</div>
+
+		
+	
 		
 
 </body>
