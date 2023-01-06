@@ -8,6 +8,8 @@ import java.sql.Statement;
 
 public class MysqlService {
 
+	private static MysqlService mysqlService = null;
+	
 	// 접속주소, 아이디, 비밀번호
 	private final String url = "jdbc:mysql://localhost:3306/yjh_1213";
 	private final String userId = "root";
@@ -16,11 +18,26 @@ public class MysqlService {
 	private Connection connection;
 	private Statement statement;
 	
+	private MysqlService() {
+		
+	}
+	
+	// 객체 생성을 관리하는 메소드
+	public static MysqlService getInstance() {
+		// 하나의 객체만 생성
+		if(mysqlService == null) {
+			mysqlService = new MysqlService();
+		}
+		
+		return mysqlService;
+	}
+	
 	// 접속기능
 	public void connect() {
 		// 접속
 		
 		try {
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 			connection = DriverManager.getConnection(url, userId, password);
 			statement = connection.createStatement();
 		} catch (SQLException e) {

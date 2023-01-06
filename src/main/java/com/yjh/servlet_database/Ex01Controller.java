@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yjh.servlet.common.MysqlService;
 
-@WebServlet("db/ex01")
+@WebServlet("/db/ex01")
 public class Ex01Controller extends HttpServlet {
 
 	@Override
@@ -21,7 +21,7 @@ public class Ex01Controller extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		MysqlService mysqlService = new MysqlService();
+		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		String selectQuery = "SELECT * FROM `used_goods`;";
 		ResultSet resultSet = mysqlService.select(selectQuery);
