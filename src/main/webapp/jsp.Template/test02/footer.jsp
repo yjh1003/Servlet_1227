@@ -3,6 +3,6 @@
 		<footer>
 			<hr>
 			<div class="text-secondary small">
-			Copyright 2023. melong All Rights Reserved
+				Copyright 2023. melong All Rights Reserved.
 			</div>
 		</footer>

@@ -1,18 +1,16 @@
 @charset "UTF-8";
 
 
-header > .Logo {
+header > .logo {
 	height:100px;
 }
 
-
-header > .searchbar {
+header > .search {
 	height:100px;
 }
 
-
-.category {
-	height:50px;
+.main-menu {
+	height:40px;
 }
 
 
