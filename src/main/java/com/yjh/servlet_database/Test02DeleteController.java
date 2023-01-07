@@ -9,23 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yjh.servlet.common.MysqlService;
 
-@WebServlet("/db/test02_insert")
-public class Test02InsertController extends HttpServlet {
+@WebServlet("/db/test02_delete")
+public class Test02DeleteController extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-	
-		String name = request.getParameter("name");
-		String url = request.getParameter("url");
+
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String query = "INSERT INTO `favorites`\r\n"
-				+ "(`name`, `url`, `createdAt`, `updatedAt`)\r\n"
-				+ "VALUES\r\n"
-				+ "('" + name + "', '" + url + "', now(), now());";
-		
+		String query = "DELETE FROM `favorites` WHERE `id` = " + id + ";";
 		int count = mysqlService.update(query);
 		
 		mysqlService.disconnect();
