@@ -14,7 +14,7 @@ public class Test02DeleteController extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+		// id를 전달받고 해당 행을 삭제한다.
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		MysqlService mysqlService = MysqlService.getInstance();

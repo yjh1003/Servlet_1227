@@ -16,6 +16,7 @@
 <body>
 <%
 	MysqlService mysqlService = MysqlService.getInstance();
+	// 접속 -> 쿼리수행
 	mysqlService.connect();
 	
 	String query = "SELECT * FROM `favorites` ORDER BY `id` DESC;";
@@ -28,13 +29,14 @@
 				<tr>
 					<th>사이트</th>
 					<th>사이트 주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 			<% while(resultSet.next()) { %>
 				<tr>
 					<td><%= resultSet.getString("name") %></td>
-					<td><a href="<%= resultSet.getString("url") %>"><%= resultSet.getString("url") %></a></td>
+					<td><a href="<%= resultSet.getString("url") %>" target="_blank"><%= resultSet.getString("url") %></a></td>
 					<td><a href="/db/test02_delete?id=<%= resultSet.getInt("id") %>">삭제</a></td>
 				</tr>
 			<% } %>

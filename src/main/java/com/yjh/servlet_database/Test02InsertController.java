@@ -13,8 +13,10 @@ import com.yjh.servlet.common.MysqlService;
 public class Test02InsertController extends HttpServlet {
 	
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	
+		// 이름과 주소를 전달 받곡 insert 한다.
+
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 		
@@ -30,6 +32,7 @@ public class Test02InsertController extends HttpServlet {
 		
 		mysqlService.disconnect();
 		
+		// 리스트 페이지로 리다이렉트
 		response.sendRedirect("/db/test02.jsp");
 		
 	}
